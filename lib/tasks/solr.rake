@@ -84,8 +84,6 @@ namespace :solr do
     batch_size          = ENV['BATCH'].to_i.nonzero? || 300
     debug_output        = env_to_bool("DEBUG", false)
 
-    RAILS_DEFAULT_LOGGER.level = ActiveSupport::BufferedLogger::INFO unless debug_output
-
     if start_server
       puts "Starting Solr server..."
       Rake::Task["solr:start"].invoke 
